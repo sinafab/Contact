@@ -1,0 +1,38 @@
+{
+    "sourceFile": "imports/ui/ContactList.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 5,
+            "patches": [
+                {
+                    "date": 1673374880132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673374893028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export const ContactList = () => {\n \n     return (\n-        <div>\n-            \n+        <div className=\"container\">\n+\n         </div>\n     );\n }\n"
+                },
+                {
+                    "date": 1673374965334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \n export const ContactList = () => {\n \n     return (\n-        <div className=\"container\">\n+        <div>\n \n         </div>\n     );\n }\n"
+                },
+                {
+                    "date": 1673377065037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,21 @@\n import React from 'react';\n+import { userTracker} from 'meteor/react-meteor-data';\n+import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n+    const contacts = userTracker(()=>{\n+        return ContactsCollection.find({}).fetch();\n+    });\n+\n     return (\n         <div>\n-\n+            <h2>La liste de contact</h2>\n+            <ul>\n+                {{contacts.map(contact => (\n+                    <li key={contact.email}>{contact.firstname} {contact.name} </li>\n+                ))}}\n+            </ul>\n         </div>\n     );\n }\n"
+                },
+                {
+                    "date": 1673377606734,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,20 @@\n import React from 'react';\n-import { userTracker} from 'meteor/react-meteor-data';\n+import { useTracker } from 'meteor/react-meteor-data';\n import { ContactsCollection } from '../api/ContactsCollection';\n \n-export const ContactList = () => {\n+export const Info = () => {\n+  const contacts = useTracker(() => {\n+    return ContactsCollection.find().fetch();\n+  });\n \n-    const contacts = userTracker(()=>{\n-        return ContactsCollection.find({}).fetch();\n-    });\n-\n-    return (\n-        <div>\n-            <h2>La liste de contact</h2>\n-            <ul>\n-                {{contacts.map(contact => (\n-                    <li key={contact.email}>{contact.firstname} {contact.name} </li>\n-                ))}}\n-            </ul>\n-        </div>\n-    );\n-}\n+  return (\n+    <div>\n+      <h2>La liste des contacts</h2>\n+      <ul>{contacts.map( contact => \n+        <li key={contact._id}> \n+            {contact.firstname} {contact.name}\n+        </li>\n+      )}</ul>\n+    </div>\n+  );\n+};\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673377624777,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from 'react';\n import { useTracker } from 'meteor/react-meteor-data';\n import { ContactsCollection } from '../api/ContactsCollection';\n \n-export const Info = () => {\n+export const ContactList = () => {\n   const contacts = useTracker(() => {\n     return ContactsCollection.find().fetch();\n   });\n \n"
+                }
+            ],
+            "date": 1673374880132,
+            "name": "Commit-0",
+            "content": "import React from 'react';\n\nexport const ContactList = () => {\n\n    return (\n        <div>\n            \n        </div>\n    );\n}\n"
+        }
+    ]
+}

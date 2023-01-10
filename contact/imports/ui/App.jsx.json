@@ -1,0 +1,54 @@
+{
+    "sourceFile": "../contact/imports/ui/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 9,
+            "patches": [
+                {
+                    "date": 1673363822186,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673363843376,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,9 @@\n \n export const App = () => (\n   <div>\n     <h1>Bienvenue dans l'application contact</h1>\n-    <Hello/>\n     <Info/>\n+    <Contact/>\n+    \n   </div>\n );\n"
+                },
+                {
+                    "date": 1673363868350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,8 @@\n export const App = () => (\n   <div>\n     <h1>Bienvenue dans l'application contact</h1>\n     <Info/>\n-    <Contact/>\n     \n+    \n   </div>\n );\n"
+                },
+                {
+                    "date": 1673364562489,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,13 @@\n import React from 'react';\n+import { Contact } from './contact.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n   <div>\n     <h1>Bienvenue dans l'application contact</h1>\n     <Info/>\n+    <Contact/>\n     \n-    \n   </div>\n );\n"
+                },
+                {
+                    "date": 1673364916781,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { Contact } from './contact.jsx';\n+import { Contact } from './Contact.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n"
+                },
+                {
+                    "date": 1673365033889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n-  <div>\n+  <div class=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     <Info/>\n     <Contact/>\n     \n"
+                },
+                {
+                    "date": 1673365070188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n \n export const App = () => (\n   <div class=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    <Info/>\n+    \n     <Contact/>\n     \n   </div>\n );\n"
+                },
+                {
+                    "date": 1673368563091,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n-  <div class=\"container\">\n+  <div classNme=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     \n     <Contact/>\n     \n"
+                },
+                {
+                    "date": 1673368579846,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n-  <div classNme=\"container\">\n+  <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     \n     <Contact/>\n     \n"
+                },
+                {
+                    "date": 1673377648892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,14 @@\n import React from 'react';\n import { Contact } from './Contact.jsx';\n+import { ContactList } from './ContactList.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     \n     <Contact/>\n-    \n+    <ContactList/>\n   </div>\n );\n"
+                }
+            ],
+            "date": 1673363822186,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { Hello } from './Hello.jsx';\nimport { Info } from './Info.jsx';\n\nexport const App = () => (\n  <div>\n    <h1>Bienvenue dans l'application contact</h1>\n    <Hello/>\n    <Info/>\n  </div>\n);\n"
+        }
+    ]
+}

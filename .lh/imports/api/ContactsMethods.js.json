@@ -1,0 +1,42 @@
+{
+    "sourceFile": "imports/api/ContactsMethods.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1673382873149,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673383026019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,5 @@\n-import { ContactsCollection } from './ContactsCollection';\n\\ No newline at end of file\n+import { ContactsCollection } from './ContactsCollection';\n+\n+const contacts.insert = ({ firstname, name, email, phone, city, provence, zipcode, country }) => {\n+    ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673383070212,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n import { ContactsCollection } from './ContactsCollection';\n \n-const contacts.insert = ({ firstname, name, email, phone, city, provence, zipcode, country }) => {\n+const contacts = ({ firstname, name, email, phone, city, provence, zipcode, country }) => {\n     ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1673384049158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,15 @@\n import { ContactsCollection } from './ContactsCollection';\n \n-const contacts = ({ firstname, name, email, phone, city, provence, zipcode, country }) => {\n-    ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n-}\n\\ No newline at end of file\n+\n+\n+/*\n+* Insert Contact \n+* From form contact\n+*\n+*/\n+Meteor.methods({\n+    insert ({ firstname, name, email, phone, city, provence, zipcode, country }){\n+        return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n+     }\n+});\n+\n"
+                },
+                {
+                    "date": 1673384321828,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n * From form contact\n *\n */\n Meteor.methods({\n-    insert ({ firstname, name, email, phone, city, provence, zipcode, country }){\n+    'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      }\n });\n \n"
+                },
+                {
+                    "date": 1673385737377,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,11 @@\n *\n */\n Meteor.methods({\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n+        if(!firstname){\n+            throw new Meteor.Error(\"le prénom est obligatoire\");\n+        }\n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      }\n });\n \n"
+                },
+                {
+                    "date": 1673385760348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n *\n */\n Meteor.methods({\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n-        if(!firstname){\n-            throw new Meteor.Error(\"le prénom est obligatoire\");\n-        }\n+        \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      }\n });\n \n"
+                }
+            ],
+            "date": 1673382873149,
+            "name": "Commit-0",
+            "content": "import { ContactsCollection } from './ContactsCollection';"
+        }
+    ]
+}

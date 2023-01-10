@@ -1,0 +1,18 @@
+{
+    "sourceFile": "imports/api/ContactsCollection.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673370997037,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673370997037,
+            "name": "Commit-0",
+            "content": "import { Mongo } from 'meteor/mongo';\n\nexport const ContactsCollection = new Mongo.Collection('contacts');"
+        }
+    ]
+}

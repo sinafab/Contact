@@ -3,11 +3,27 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 4,
             "patches": [
                 {
                     "date": 1673360608884,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1673364458056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,4 +20,5 @@\n \n static-html@1.3.2             # Define static page content in .html files\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n autopublish                   # Publish all server collections to the client (for prototyping)  \n+twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n"
+                },
+                {
+                    "date": 1673373533084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,4 +21,5 @@\n static-html@1.3.2             # Define static page content in .html files\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n autopublish                   # Publish all server collections to the client (for prototyping)  \n twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n+insecure                      # Allow almost all collection methods\n"
+                },
+                {
+                    "date": 1673382327700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,4 +22,6 @@\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n autopublish                   # Publish all server collections to the client (for prototyping)  \n twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n insecure                      # Allow almost all collection methods\n+ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n+kadira:blaze-layout           # This is a layout manager designed for Blaze\n"
+                },
+                {
+                    "date": 1673382594561,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,7 @@\n \n \n static-html@1.3.2             # Define static page content in .html files\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n-autopublish                   # Publish all server collections to the client (for prototyping)  \n twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n-insecure                      # Allow almost all collection methods\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n"
                 }
             ],
             "date": 1673360608884,

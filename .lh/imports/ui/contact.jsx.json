@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 37,
+            "activePatchIndex": 39,
             "patches": [
                 {
                     "date": 1673363766759,
@@ -156,6 +156,14 @@
                 {
                     "date": 1673385332031,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,5 @@\n import React, { useState } from 'react';\n-import { ContactsCollection } from '../api/ContactsCollection';\n import { Meteor } from 'meteor/meteor';\n \n export const Contact = () => {\n   \n"
+                },
+                {
+                    "date": 1673453680611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,8 +14,9 @@\n \n     const saveContact = ()=>{\n         \n         console.log({firstname, name, email, phone, city, provence, zipcode, country});\n+        \n         Meteor.call('contacts.insert', {firstname, name, email, phone, city, provence, zipcode, country});\n         setFirstName(\"\");\n         setName(\"\");\n         setEmail(\"\");\n"
+                },
+                {
+                    "date": 1673455131538,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n     const [country, setCountry] = useState(\"\");\n \n     const saveContact = ()=>{\n         \n-        console.log({firstname, name, email, phone, city, provence, zipcode, country});\n         \n+        \n         Meteor.call('contacts.insert', {firstname, name, email, phone, city, provence, zipcode, country});\n         setFirstName(\"\");\n         setName(\"\");\n         setEmail(\"\");\n"
                 }
             ],
             "date": 1673363766759,

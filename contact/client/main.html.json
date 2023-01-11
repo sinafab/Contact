@@ -1,0 +1,18 @@
+{
+    "sourceFile": "../contact/client/main.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1673451442268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1673451442268,
+            "name": "Commit-0",
+            "content": "<head>\n  <title>contact</title>\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD\" crossorigin=\"anonymous\">\n</head>\n\n<body>\n  <div id=\"react-target\"></div>\n</body>\n"
+        }
+    ]
+}

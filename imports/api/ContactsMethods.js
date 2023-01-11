@@ -11,6 +11,10 @@ Meteor.methods({
     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){
         
         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });
+     },
+
+     'contacts.remove' ({contactId}){
+        return ContactsCollection.remove(contactId);
      }
 });
 

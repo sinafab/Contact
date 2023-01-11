@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 6,
+            "activePatchIndex": 7,
             "patches": [
                 {
                     "date": 1673382873149,
@@ -32,6 +32,10 @@
                 {
                     "date": 1673385760348,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n *\n */\n Meteor.methods({\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n-        if(!firstname){\n-            throw new Meteor.Error(\"le prénom est obligatoire\");\n-        }\n+        \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      }\n });\n \n"
+                },
+                {
+                    "date": 1673454262050,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,11 @@\n Meteor.methods({\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n         \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n+     },\n+\n+     'contacts.remove' ({contactId}){\n+        return ContactsCollection.remove(contactId);\n      }\n });\n \n"
                 }
             ],
             "date": 1673382873149,

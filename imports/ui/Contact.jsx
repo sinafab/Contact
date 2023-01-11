@@ -14,7 +14,8 @@ export const Contact = () => {
 
     const saveContact = ()=>{
         
-        console.log({firstname, name, email, phone, city, provence, zipcode, country});
+        
+        
         Meteor.call('contacts.insert', {firstname, name, email, phone, city, provence, zipcode, country});
         setFirstName("");
         setName("");

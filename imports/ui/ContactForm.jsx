@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-export const Contact = () => {
+export const ContactForm = () => {
   
     const [firstname, setFirstName] = useState("");
     const [name, setName] = useState("");

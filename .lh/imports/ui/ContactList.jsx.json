@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 48,
+            "activePatchIndex": 77,
             "patches": [
                 {
                     "date": 1673374880132,
@@ -200,6 +200,122 @@
                 {
                     "date": 1673454624588,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,11 +6,11 @@\n \n     const contacts = useTracker(() => {\n         return ContactsCollection.find().fetch();\n     });\n-    \n+\n     const removeContact = (_id) =>{\n-        Meteor.call('contact.remove', {contactId: _id});            \n+        Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n \n     return (\n"
+                },
+                {
+                    "date": 1675690204464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,11 +31,9 @@\n                 </div>\n             </div>\n         </div>\n \n-        /* { <li key={contact._id}> \n-            {contact.firstname} {contact.name}\n-        </li> } */\n+       \n       )}\n       \n     </div>\n   );\n"
+                },
+                {
+                    "date": 1675697204364,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from 'react';\n-import { useTracker } from 'meteor/react-meteor-data';\n+import { useTracker, useSubscribe } from 'meteor/react-meteor-data';\n import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n"
+                },
+                {
+                    "date": 1675697608596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,12 @@\n import React from 'react';\n-import { useTracker, useSubscribe } from 'meteor/react-meteor-data';\n+import { useTracker, useSubscribe, useFind } from 'meteor/react-meteor-data';\n import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n+    const isLoading = useSubscribe('contactList');\n+    if(isLoading())\n     const contacts = useTracker(() => {\n         return ContactsCollection.find().fetch();\n     });\n \n"
+                },
+                {
+                    "date": 1675697616812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,9 @@\n \n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n-    if(isLoading())\n+    \n     const contacts = useTracker(() => {\n         return ContactsCollection.find().fetch();\n     });\n \n"
+                },
+                {
+                    "date": 1675697851598,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,11 +5,11 @@\n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n-    const contacts = useTracker(() => {\n-        return ContactsCollection.find().fetch();\n-    });\n+    // const contacts = useTracker(() => {\n+    //     return ContactsCollection.find().fetch();\n+    // });\n \n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n"
+                },
+                {
+                    "date": 1675698388895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,8 +5,13 @@\n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n+     const contacts = useTracker(() => {\n+        Meteor.subscribe('contactList');\n+        return ContactsCollection.find().fetch();\n+    });\n+\n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n     // });\n \n"
+                },
+                {
+                    "date": 1675698397739,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n-        return ContactsCollection.find().fetch();\n+        return ContactsCollection.find();\n     });\n \n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675698442318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n-        return ContactsCollection.find();\n+        return ContactsCollection.find().fetch();\n     });\n \n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675698450214,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n-        return ContactsCollection.find().fetch();\n+        return ContactsCollection.find();\n     });\n \n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675699388189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,12 @@\n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n+    \n+    if(isLoading()){\n+        return <p>chargement...</p>\n+    }\n \n     return (\n     <div>\n       <h2>La liste des contacts</h2>\n"
+                },
+                {
+                    "date": 1675699568468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n-        return ContactsCollection.find();\n+        return ContactsCollection.find().fetch();\n     });\n \n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675699592226,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n-    const isLoading = useSubscribe('contactList');\n+    const isLoading = useSubscribe('contactListf');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n         return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675699603528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n-    const isLoading = useSubscribe('contactListf');\n+    const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n         return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675700343784,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n      const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n-        return ContactsCollection.find().fetch();\n+        return ContactsCollection.find();\n     });\n \n     // const contacts = useTracker(() => {\n     //     return ContactsCollection.find().fetch();\n"
+                },
+                {
+                    "date": 1675700399042,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,16 +5,14 @@\n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n-     const contacts = useTracker(() => {\n+    const contacts = useTracker(() => {\n         Meteor.subscribe('contactList');\n         return ContactsCollection.find();\n     });\n \n-    // const contacts = useTracker(() => {\n-    //     return ContactsCollection.find().fetch();\n-    // });\n+    \n \n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n"
+                },
+                {
+                    "date": 1675700426827,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n-    const contacts = useTracker(() => {\n-        Meteor.subscribe('contactList');\n-        return ContactsCollection.find();\n-    });\n+    // const contacts = useTracker(() => {\n+    //     Meteor.subscribe('contactList');\n+    //     return ContactsCollection.find();\n+    // });\n \n     \n \n     const removeContact = (_id) =>{\n"
+                },
+                {
+                    "date": 1675700638789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,12 @@\n     //     Meteor.subscribe('contactList');\n     //     return ContactsCollection.find();\n     // });\n \n-    \n+    const contacts = useFind(() => {\n+        \n+        return ContactsCollection.find();\n+    });\n \n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n"
+                },
+                {
+                    "date": 1675700686876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,12 +10,12 @@\n     //     Meteor.subscribe('contactList');\n     //     return ContactsCollection.find();\n     // });\n \n-    const contacts = useFind(() => {\n+    // const contacts = useFind(() => {\n         \n-        return ContactsCollection.find();\n-    });\n+    //     return ContactsCollection.find();\n+    // });\n \n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n"
+                },
+                {
+                    "date": 1675700719395,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n-    // const contacts = useTracker(() => {\n-    //     Meteor.subscribe('contactList');\n-    //     return ContactsCollection.find();\n-    // });\n+    const contacts = useTracker(() => {\n+        // Meteor.subscribe('contactList');\n+        return ContactsCollection.find();\n+    });\n \n     // const contacts = useFind(() => {\n         \n     //     return ContactsCollection.find();\n"
+                },
+                {
+                    "date": 1675700850871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        return ContactsCollection.find();\n+        return ContactsCollection.find().fetch();\n     });\n \n     // const contacts = useFind(() => {\n         \n"
+                },
+                {
+                    "date": 1675700903451,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        return ContactsCollection.find().fetch();\n+        return ContactsCollection.find();\n     });\n \n     // const contacts = useFind(() => {\n         \n"
+                },
+                {
+                    "date": 1675700941886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        return ContactsCollection.find();\n+        return ContactsCollection.find().fetch();\n     });\n \n     // const contacts = useFind(() => {\n         \n"
+                },
+                {
+                    "date": 1675703068111,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        return ContactsCollection.find().fetch();\n+        const result =  ContactsCollection.find().fetch();\n+        return result;\n     });\n \n     // const contacts = useFind(() => {\n         \n"
+                },
+                {
+                    "date": 1675703159409,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,8 +8,9 @@\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n         const result =  ContactsCollection.find().fetch();\n+        console.log(result);\n         return result;\n     });\n \n     // const contacts = useFind(() => {\n"
+                },
+                {
+                    "date": 1675703245375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n         const result =  ContactsCollection.find().fetch();\n-        console.log(result);\n+        console.log(\"voici le curseur\" + result);\n         return result;\n     });\n \n     // const contacts = useFind(() => {\n"
+                },
+                {
+                    "date": 1675703292673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n         const result =  ContactsCollection.find().fetch();\n-        console.log(\"voici le curseur\" + result);\n+        console.log(result);\n         return result;\n     });\n \n     // const contacts = useFind(() => {\n"
+                },
+                {
+                    "date": 1675705123876,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        const result =  ContactsCollection.find().fetch();\n+        const result =  ContactsCollection.find();\n         console.log(result);\n         return result;\n     });\n \n"
+                },
+                {
+                    "date": 1675705155087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         // Meteor.subscribe('contactList');\n-        const result =  ContactsCollection.find();\n+        const result =  ContactsCollection.find().fetch();\n         console.log(result);\n         return result;\n     });\n \n"
+                },
+                {
+                    "date": 1675705374766,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,18 @@\n import React from 'react';\n-import { useTracker, useSubscribe, useFind } from 'meteor/react-meteor-data';\n+import { useTracker, useSubscribe } from 'meteor/react-meteor-data';\n import { ContactsCollection } from '../api/ContactsCollection';\n \n export const ContactList = () => {\n \n     const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n-        // Meteor.subscribe('contactList');\n         const result =  ContactsCollection.find().fetch();\n-        console.log(result);\n         return result;\n     });\n \n-    // const contacts = useFind(() => {\n-        \n-    //     return ContactsCollection.find();\n-    // });\n+    \n \n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n"
                 }
             ],
             "date": 1673374880132,

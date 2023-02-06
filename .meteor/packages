@@ -23,4 +23,4 @@ react-meteor-data             # React higher-order component for reactively trac
 twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development
 ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.
 kadira:blaze-layout           # This is a layout manager designed for Blaze
-autopublish
+

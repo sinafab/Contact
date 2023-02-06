@@ -1,0 +1,18 @@
+{
+    "sourceFile": "imports/ui/App.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1675693957988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1675693957988,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { ContactForm } from './ContactForm.jsx';\nimport { ContactList } from './ContactList.jsx';\nimport { Hello } from './Hello.jsx';\nimport { Info } from './Info.jsx';\n\nexport const App = () => (\n  <div className=\"container\">\n    <h1>Bienvenue dans l'application contact</h1>\n    \n    <ContactForm/>\n    <ContactList/>\n  </div>\n);\n"
+        }
+    ]
+}

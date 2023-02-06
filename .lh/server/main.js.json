@@ -1,0 +1,22 @@
+{
+    "sourceFile": "server/main.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1675695999802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675696019446,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Meteor } from 'meteor/meteor';\n import { LinksCollection } from '/imports/api/links';\n import '../imports/api/ContactsCollection';\n import '../imports/api/ContactsMethods';\n-import './publications'\n+import './publications';\n \n async function insertLink({ title, url }) {\n   await LinksCollection.insertAsync({ title, url, createdAt: new Date() });\n }\n"
+                }
+            ],
+            "date": 1675695999802,
+            "name": "Commit-0",
+            "content": "import { Meteor } from 'meteor/meteor';\nimport { LinksCollection } from '/imports/api/links';\nimport '../imports/api/ContactsCollection';\nimport '../imports/api/ContactsMethods';\nimport './publications'\n\nasync function insertLink({ title, url }) {\n  await LinksCollection.insertAsync({ title, url, createdAt: new Date() });\n}\n\nMeteor.startup(async () => {\n  // If the Links collection is empty, add some data.\n  if (await LinksCollection.find().countAsync() === 0) {\n    await insertLink({\n      title: 'Do the Tutorial',\n      url: 'https://www.meteor.com/tutorials/react/creating-an-app',\n    });\n\n    await insertLink({\n      title: 'Follow the Guide',\n      url: 'https://guide.meteor.com',\n    });\n\n    await insertLink({\n      title: 'Read the Docs',\n      url: 'https://docs.meteor.com',\n    });\n\n    await insertLink({\n      title: 'Discussions',\n      url: 'https://forums.meteor.com',\n    });\n  }\n});\n"
+        }
+    ]
+}

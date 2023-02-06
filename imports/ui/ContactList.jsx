@@ -1,17 +1,26 @@
 import React from 'react';
-import { useTracker } from 'meteor/react-meteor-data';
+import { useTracker, useSubscribe } from 'meteor/react-meteor-data';
 import { ContactsCollection } from '../api/ContactsCollection';
 
 export const ContactList = () => {
 
+    const isLoading = useSubscribe('contactList');
+    
     const contacts = useTracker(() => {
-        return ContactsCollection.find().fetch();
+        const result =  ContactsCollection.find().fetch();
+        return result;
     });
+
+    
 
     const removeContact = (_id) =>{
         Meteor.call('contacts.remove', {contactId: _id});            
     };
 
+    
+    if(isLoading()){
+        return <p>chargement...</p>
+    }
 
     return (
     <div>
@@ -32,9 +41,7 @@ export const ContactList = () => {
             </div>
         </div>
 
-        /* { <li key={contact._id}> 
-            {contact.firstname} {contact.name}
-        </li> } */
+       
       )}
       
     </div>

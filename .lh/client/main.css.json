@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/main.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1675889985710,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675890003604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,1 @@\n-/* body {\n-  padding: 10px;\n-  font-family: sans-serif;\n-} */\n+\n"
+                }
+            ],
+            "date": 1675889985710,
+            "name": "Commit-0",
+            "content": "/* body {\n  padding: 10px;\n  font-family: sans-serif;\n} */\n"
+        }
+    ]
+}

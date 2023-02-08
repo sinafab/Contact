@@ -30,8 +30,12 @@ export const ContactForm = () => {
     };
 
     return (
-        <div>
-            <form className="row g-3">
+        <div className="container">
+            <div>
+                <h1> Formulaire d'ajout de contact</h1>
+            </div>
+            <div>
+                <form className="row g-3">
                 <div className="col-md-6">
                     <label htmlFor="firstname" className="form-label">Prénom</label>
                     <input type="text" className="form-control" onChange={(e)=> setFirstName(e.target.value)} name="firstname" id="firstname" value={firstname} placeholder=""/>
@@ -68,6 +72,7 @@ export const ContactForm = () => {
                     <button type="button" onClick={saveContact} className="btn btn-primary">Envoyer</button>
                 </div>
             </form>
+            </div>
         </div>
   );
 };

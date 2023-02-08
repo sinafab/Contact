@@ -1,0 +1,70 @@
+{
+    "sourceFile": "imports/api/AppRoutes.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1675874447436,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675874493601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react';\n import { Route, Routes } from 'react-router-dom';\n+import { ContactList } from './ContactList.jsx';\n \n-\n export const AppRoutes = () => (\n     <div>\n       <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n"
+                },
+                {
+                    "date": 1675874670881,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n import { ContactList } from './ContactList.jsx';\n \n export const AppRoutes = () => (\n     <div>\n-      <Routes>\n+      {/* <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n-      </Routes>\n+      </Routes> */}\n       \n     </div>\n   );\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1675874938976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,11 +3,11 @@\n import { ContactList } from './ContactList.jsx';\n \n export const AppRoutes = () => (\n     <div>\n-      {/* <Routes>\n+      <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n-      </Routes> */}\n+      </Routes>\n       \n     </div>\n   );\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1675875067629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import React from 'react';\n import { Route, Routes } from 'react-router-dom';\n import { ContactList } from './ContactList.jsx';\n-\n+import { App } from '../ui/App';\n export const AppRoutes = () => (\n     <div>\n       <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n"
+                },
+                {
+                    "date": 1675875185201,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n import React from 'react';\n import { Route, Routes } from 'react-router-dom';\n import { ContactList } from './ContactList.jsx';\n import { App } from '../ui/App';\n+\n+\n export const AppRoutes = () => (\n     <div>\n       <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n"
+                },
+                {
+                    "date": 1675875211188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,10 @@\n import React from 'react';\n import { Route, Routes } from 'react-router-dom';\n import { ContactList } from './ContactList.jsx';\n-import { App } from '../ui/App';\n \n \n+\n export const AppRoutes = () => (\n     <div>\n       <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n"
+                },
+                {
+                    "date": 1675875288067,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react';\n import { Route, Routes } from 'react-router-dom';\n-import { ContactList } from './ContactList.jsx';\n+import { ContactList } from '../ui/ContactList';\n \n \n \n export const AppRoutes = () => (\n"
+                },
+                {
+                    "date": 1675877971870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n export const AppRoutes = () => (\n     <div>\n       <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n+        console.log('contactlist');\n       </Routes>\n       \n     </div>\n   );\n"
+                },
+                {
+                    "date": 1675878005408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n \n \n export const AppRoutes = () => (\n     <div>\n-      <Routes>\n+      {/* <Routes>\n         <Route path='/contacts' element={<ContactList/>}/>\n         console.log('contactlist');\n-      </Routes>\n+      </Routes> */}\n       \n     </div>\n   );\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1675878866510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,9 @@\n \n \n export const AppRoutes = () => (\n     <div>\n-      {/* <Routes>\n-        <Route path='/contacts' element={<ContactList/>}/>\n-        console.log('contactlist');\n-      </Routes> */}\n+     \n       \n     </div>\n   );\n   \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1675880121222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,8 @@\n-import React from 'react';\n-import { Route, Routes } from 'react-router-dom';\n-import { ContactList } from '../ui/ContactList';\n+import {Rputes, Route} from \"react-router-dom\";\n \n \n-\n-export const AppRoutes = () => (\n-    <div>\n-     \n-      \n-    </div>\n-  );\n\\ No newline at end of file\n-  \n+export const AppRoutes = ()=>{\n+    <Routes>\n+        <Route path=\"/contacts\" element={<ContactList/>}/>\n+    </Routes>\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1675880159697,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import {Rputes, Route} from \"react-router-dom\";\n+import { Routes, Route } from \"react-router-dom\";\n+import { ContactList } from \"../ui/ContactList\";\n \n-\n export const AppRoutes = ()=>{\n     <Routes>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n"
+                },
+                {
+                    "date": 1675880696525,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,6 @@\n import { Routes, Route } from \"react-router-dom\";\n import { ContactList } from \"../ui/ContactList\";\n \n export const AppRoutes = ()=>{\n-    <Routes>\n-        <Route path=\"/contacts\" element={<ContactList/>}/>\n-    </Routes>\n+    \n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1675874447436,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { Route, Routes } from 'react-router-dom';\n\n\nexport const AppRoutes = () => (\n    <div>\n      <Routes>\n        <Route path='/contacts' element={<ContactList/>}/>\n      </Routes>\n      \n    </div>\n  );\n  "
+        }
+    ]
+}

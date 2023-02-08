@@ -1,6 +1,11 @@
 import React from 'react';
 import { useTracker, useSubscribe } from 'meteor/react-meteor-data';
 import { ContactsCollection } from '../api/ContactsCollection';
+import { Link } from "react-router-dom";
+
+
+
+
 
 export const ContactList = () => {
 
@@ -11,8 +16,7 @@ export const ContactList = () => {
         return result;
     });
 
-    
-
+   
     const removeContact = (_id) =>{
         Meteor.call('contacts.remove', {contactId: _id});            
     };
@@ -23,8 +27,8 @@ export const ContactList = () => {
     }
 
     return (
-    <div>
-      <h2>La liste des contacts</h2>
+    <div className="container">
+      <h1>La liste des contacts</h1>
     
       {contacts.map( contact => 
         <div className="card mb-3" key={contact._id}>
@@ -36,6 +40,7 @@ export const ContactList = () => {
                     </div>
                 </div>   
                 <div className="col-md-4 d-flex align-items-center justify-content-end pe-5">
+                    <Link className="btn btn-outline-primary mr-2"  to="/modifier/${contact._id}">Modifier</Link> 
                     <button onClick={()=> removeContact(contact._id)} type="button" className="btn btn-outline-danger">Supprimer</button> 
                 </div>
             </div>

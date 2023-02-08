@@ -1,0 +1,46 @@
+{
+    "sourceFile": "client/main.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 7,
+            "patches": [
+                {
+                    "date": 1675787226964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675787352810,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import React from 'react';\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n-import {} from 'meteor/ostrio:flow-router-extra';\n+import { FlowRouter } from 'meteor/ostrio:flow-router-extra';\n \n Meteor.startup(() => {\n   render(<App/>, document.getElementById('react-target'));\n });\n"
+                },
+                {
+                    "date": 1675868136027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import React from 'react';\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n-import { FlowRouter } from 'meteor/ostrio:flow-router-extra';\n-\n+import {BrowserRouter} from 'react-router-dom';\n Meteor.startup(() => {\n   render(<App/>, document.getElementById('react-target'));\n });\n"
+                },
+                {
+                    "date": 1675868144641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,7 +2,9 @@\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n import {BrowserRouter} from 'react-router-dom';\n+\n+\n Meteor.startup(() => {\n   render(<App/>, document.getElementById('react-target'));\n });\n"
+                },
+                {
+                    "date": 1675869318103,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,6 +5,12 @@\n import {BrowserRouter} from 'react-router-dom';\n \n \n Meteor.startup(() => {\n-  render(<App/>, document.getElementById('react-target'));\n+  render(\n+    <BrowserRouter>\n+      <App/>\n+    </BrowserRouter>\n+  , \n+  document.getElementById('react-target')\n+  );\n });\n"
+                },
+                {
+                    "date": 1675874920760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n import {BrowserRouter} from 'react-router-dom';\n+import { App } from '/imports/api/AppRoutes.js';\n \n \n Meteor.startup(() => {\n   render(\n"
+                },
+                {
+                    "date": 1675875115536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n import {BrowserRouter} from 'react-router-dom';\n-import { App } from '/imports/api/AppRoutes.js';\n+import { AppRoutes } from '/imports/api/AppRoutes.js';\n \n \n Meteor.startup(() => {\n   render(\n"
+                },
+                {
+                    "date": 1675875401970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,11 +2,11 @@\n import { Meteor } from 'meteor/meteor';\n import { render } from 'react-dom';\n import { App } from '/imports/ui/App';\n import {BrowserRouter} from 'react-router-dom';\n-import { AppRoutes } from '/imports/api/AppRoutes.js';\n \n \n+\n Meteor.startup(() => {\n   render(\n     <BrowserRouter>\n       <App/>\n"
+                }
+            ],
+            "date": 1675787226964,
+            "name": "Commit-0",
+            "content": "import React from 'react';\nimport { Meteor } from 'meteor/meteor';\nimport { render } from 'react-dom';\nimport { App } from '/imports/ui/App';\nimport {} from 'meteor/ostrio:flow-router-extra';\n\nMeteor.startup(() => {\n  render(<App/>, document.getElementById('react-target'));\n});\n"
+        }
+    ]
+}

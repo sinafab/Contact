@@ -3,11 +3,123 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 28,
             "patches": [
                 {
                     "date": 1675693957988,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675874521527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,7 +8,7 @@\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     \n     <ContactForm/>\n-    <ContactList/>\n+    {/* <ContactList/> */}\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675874674613,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,13 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    \n+\n+    <Routes> \n+        <Route path='/contacts' element={<ContactList/>}/>\n+    </Routes>\n+\n     <ContactForm/>\n     {/* <ContactList/> */}\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675874813951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n import { ContactForm } from './ContactForm.jsx';\n import { ContactList } from './ContactList.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n+import { Route, Routes } from 'react-router-dom';\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n"
+                },
+                {
+                    "date": 1675874930237,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n \n-    <Routes> \n+    {/* <Routes> \n         <Route path='/contacts' element={<ContactList/>}/>\n-    </Routes>\n+    </Routes> */}\n \n     <ContactForm/>\n     {/* <ContactList/> */}\n   </div>\n"
+                },
+                {
+                    "date": 1675875175269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,13 +7,14 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-\n+    \n+    <ContactForm/>\n     {/* <Routes> \n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes> */}\n \n-    <ContactForm/>\n+    \n     {/* <ContactList/> */}\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675875419795,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,13 +3,15 @@\n import { ContactList } from './ContactList.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n import { Route, Routes } from 'react-router-dom';\n+import { AppRoutes } from '../api/AppRoutes.js';\n \n+\n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    \n+\n     <ContactForm/>\n     {/* <Routes> \n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes> */}\n"
+                },
+                {
+                    "date": 1675875441563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-\n+    <AppRoutes/>\n     <ContactForm/>\n     {/* <Routes> \n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes> */}\n"
+                },
+                {
+                    "date": 1675878024126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,13 +9,13 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    <AppRoutes/>\n+    {/* <AppRoutes/> */}\n     <ContactForm/>\n-    {/* <Routes> \n+    <Routes> \n         <Route path='/contacts' element={<ContactList/>}/>\n-    </Routes> */}\n+    </Routes>\n \n     \n     {/* <ContactList/> */}\n   </div>\n"
+                },
+                {
+                    "date": 1675878160498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,9 @@\n     <h1>Bienvenue dans l'application contact</h1>\n     {/* <AppRoutes/> */}\n     <ContactForm/>\n     <Routes> \n+        <Route path='/' element={<App/>}/>\n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes>\n \n     \n"
+                },
+                {
+                    "date": 1675878209930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     <h1>Bienvenue dans l'application contact</h1>\n     {/* <AppRoutes/> */}\n     <ContactForm/>\n     <Routes> \n-        <Route path='/' element={<App/>}/>\n+        {/* <Route path='/' element={<App/>}/> */}\n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes>\n \n     \n"
+                },
+                {
+                    "date": 1675878855492,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,12 +9,12 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    {/* <AppRoutes/> */}\n+    \n     <ContactForm/>\n     <Routes> \n-        {/* <Route path='/' element={<App/>}/> */}\n+        \n         <Route path='/contacts' element={<ContactList/>}/>\n     </Routes>\n \n     \n"
+                },
+                {
+                    "date": 1675878916268,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,13 +11,7 @@\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     \n     <ContactForm/>\n-    <Routes> \n-        \n-        <Route path='/contacts' element={<ContactList/>}/>\n-    </Routes>\n-\n-    \n-    {/* <ContactList/> */}\n+    <ContactList/>\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675879118107,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,8 @@\n import { ContactList } from './ContactList.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n import { Route, Routes } from 'react-router-dom';\n-import { AppRoutes } from '../api/AppRoutes.js';\n \n \n export const App = () => (\n   <div className=\"container\">\n"
+                },
+                {
+                    "date": 1675880713568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n-    \n-    <ContactForm/>\n-    <ContactList/>\n+    <Routes>\n+        <Route path=\"/contacts\" element={<ContactList/>}/>\n+    </Routes>\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675880757595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,8 +9,9 @@\n export const App = () => (\n   <div className=\"container\">\n     <h1>Bienvenue dans l'application contact</h1>\n     <Routes>\n+        <Route path=\"/\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675882188925,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,11 +7,12 @@\n \n \n export const App = () => (\n   <div className=\"container\">\n-    <h1>Bienvenue dans l'application contact</h1>\n+    \n     <Routes>\n         <Route path=\"/\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n+    \n   </div>\n );\n"
+                },
+                {
+                    "date": 1675882196159,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,13 +6,13 @@\n import { Route, Routes } from 'react-router-dom';\n \n \n export const App = () => (\n-  <div className=\"container\">\n+  <div>\n     \n     <Routes>\n         <Route path=\"/\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n-    \n+\n   </div>\n );\n"
+                },
+                {
+                    "date": 1675882338348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,10 @@\n import { ContactList } from './ContactList.jsx';\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n import { Route, Routes } from 'react-router-dom';\n+import { MainLayout } from './MainLayout.jsx';\n \n-\n export const App = () => (\n   <div>\n     \n     <Routes>\n"
+                },
+                {
+                    "date": 1675882359026,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n export const App = () => (\n   <div>\n     \n     <Routes>\n-        <Route path=\"/\" element={<ContactForm/>}/>\n+        <Route path=\"/ajouter\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1675882378414,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,9 @@\n   <div>\n     \n     <Routes>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n+        <Route path=\"/ajouter\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1675882392820,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,10 @@\n export const App = () => (\n   <div>\n     \n     <Routes>\n+        <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n-        <Route path=\"/ajouter\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1675882977129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,9 +4,12 @@\n import { Hello } from './Hello.jsx';\n import { Info } from './Info.jsx';\n import { Route, Routes } from 'react-router-dom';\n import { MainLayout } from './MainLayout.jsx';\n+import { Navbar } from './Navbar.jsx';\n \n+\n+\n export const App = () => (\n   <div>\n     \n     <Routes>\n"
+                },
+                {
+                    "date": 1675882991819,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n \n \n export const App = () => (\n   <div>\n-    \n+    <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n"
+                },
+                {
+                    "date": 1675890096234,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n \n \n export const App = () => (\n-  <div>\n+  <div className='container'>\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n"
+                },
+                {
+                    "date": 1675890124459,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n \n \n \n export const App = () => (\n-  <div className='container'>\n+  <div className='container-fluid'>\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n"
+                },
+                {
+                    "date": 1675892769461,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,17 +5,18 @@\n import { Info } from './Info.jsx';\n import { Route, Routes } from 'react-router-dom';\n import { MainLayout } from './MainLayout.jsx';\n import { Navbar } from './Navbar.jsx';\n+import { UpdateContact } from './UpdateContact.jsx';\n \n \n-\n export const App = () => (\n   <div className='container-fluid'>\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n+        <Route path=\"/modifier\" element={<ContactForm/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1675892779232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n-        <Route path=\"/modifier\" element={<ContactForm/>}/>\n+        <Route path=\"/modifier\" element={<UpdateContact/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1675893923471,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n-        <Route path=\"/modifier\" element={<UpdateContact/>}/>\n+        <Route path=\"/modifier/:id\" element={<UpdateContact/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
                 }
             ],
             "date": 1675693957988,

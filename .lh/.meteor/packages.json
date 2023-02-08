@@ -3,11 +3,35 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 0,
+            "activePatchIndex": 6,
             "patches": [
                 {
                     "date": 1675695709408,
                     "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1675795884930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,5 +22,6 @@\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n+server-render\n \n"
+                },
+                {
+                    "date": 1675795937163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,6 @@\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n-server-render\n+server-render                 # This package implements generic support for server-side rendering in Meteor apps\n \n"
+                },
+                {
+                    "date": 1675891089258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,23 +5,24 @@\n # but you can also edit it by hand.\n \n meteor-base@1.5.1             # Packages every Meteor app needs to have\n mobile-experience@1.1.0       # Packages for a great mobile UX\n-mongo@1.16.3                   # The database Meteor supports right now\n+mongo@1.16.4                   # The database Meteor supports right now\n reactive-var@1.0.12            # Reactive variable for tracker\n \n standard-minifier-css@1.8.3   # CSS minifier run for production mode\n standard-minifier-js@2.8.1    # JS minifier run for production mode\n es5-shim@4.8.0                # ECMAScript 5 compatibility for older browsers\n-ecmascript@0.16.4              # Enable ECMAScript2015+ syntax in app code\n-typescript@4.6.4              # Enable TypeScript syntax in .ts and .tsx modules\n+ecmascript@0.16.5              # Enable ECMAScript2015+ syntax in app code\n+typescript@4.7.4              # Enable TypeScript syntax in .ts and .tsx modules\n shell-server@0.5.0            # Server-side component of the `meteor shell` command\n hot-module-replacement@0.5.2  # Update client in development without reloading the page\n \n \n static-html@1.3.2             # Define static page content in .html files\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n-twbs:bootstrap                # Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n-server-render                 # This package implements generic support for server-side rendering in Meteor apps\n+server-render@0.4.1                 # This package implements generic support for server-side rendering in Meteor apps\n \n+tracker@1.3.0\n+jquery\n"
+                },
+                {
+                    "date": 1675891114914,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,7 @@\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n server-render@0.4.1                 # This package implements generic support for server-side rendering in Meteor apps\n-\n+alexwine:bootstrap-4\n tracker@1.3.0\n jquery\n"
+                },
+                {
+                    "date": 1675891176193,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,6 +23,7 @@\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n server-render@0.4.1                 # This package implements generic support for server-side rendering in Meteor apps\n alexwine:bootstrap-4\n+peppelg:bootstrap-3-modal\n tracker@1.3.0\n jquery\n"
+                },
+                {
+                    "date": 1675891267444,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n static-html@1.3.2             # Define static page content in .html files\n react-meteor-data             # React higher-order component for reactively tracking Meteor data\n ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.\n kadira:blaze-layout           # This is a layout manager designed for Blaze\n-server-render@0.4.1                 # This package implements generic support for server-side rendering in Meteor apps\n+server-render@0.4.1           # This package implements generic support for server-side rendering in Meteor apps\n alexwine:bootstrap-4\n peppelg:bootstrap-3-modal\n tracker@1.3.0\n jquery\n"
                 }
             ],
             "date": 1675695709408,

@@ -1,5 +1,5 @@
 import { ContactsCollection } from './ContactsCollection';
-
+import { redirect } from "react-router-dom";
 
 
 /*
@@ -8,6 +8,7 @@ import { ContactsCollection } from './ContactsCollection';
 *
 */
 Meteor.methods({
+
     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){
         
         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });
@@ -15,6 +16,25 @@ Meteor.methods({
 
      'contacts.remove' ({contactId}){
         return ContactsCollection.remove(contactId);
-     }
+     },
+
+     'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){
+         return ContactsCollection.update(
+            {_id: contactId}, 
+            { $set: 
+               { 
+                  firstname:firstname , 
+                  name : name, 
+                  email : email, 
+                  phone : phone, 
+                  city : city, 
+                  provence : provence, 
+                  zipcode : zipcode, 
+                  country : country
+               } 
+            }
+         );
+          
+      }
 });
 

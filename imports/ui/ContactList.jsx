@@ -16,7 +16,8 @@ export const ContactList = () => {
         return result;
     });
 
-   
+    console.log("les contacts"+contacts);
+
     const removeContact = (_id) =>{
         Meteor.call('contacts.remove', {contactId: _id});            
     };
@@ -40,7 +41,8 @@ export const ContactList = () => {
                     </div>
                 </div>   
                 <div className="col-md-4 d-flex align-items-center justify-content-end pe-5">
-                    <Link className="btn btn-outline-primary mr-2"  to="/modifier/${contact._id}">Modifier</Link> 
+                     
+                    <Link className="btn btn-outline-primary m-2"  to={`/modifier/${contact._id}`}>Modifier</Link> 
                     <button onClick={()=> removeContact(contact._id)} type="button" className="btn btn-outline-danger">Supprimer</button> 
                 </div>
             </div>

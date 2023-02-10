@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 28,
+            "activePatchIndex": 29,
             "patches": [
                 {
                     "date": 1675693957988,
@@ -120,6 +120,10 @@
                 {
                     "date": 1675893923471,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n-        <Route path=\"/modifier\" element={<UpdateContact/>}/>\n+        <Route path=\"/modifier/:id\" element={<UpdateContact/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
+                },
+                {
+                    "date": 1676039027394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,9 +14,9 @@\n     <Navbar/>\n     <Routes>\n         <Route path=\"/\" element={<MainLayout/>}/>\n         <Route path=\"/ajouter\" element={<ContactForm/>}/>\n-        <Route path=\"/modifier/:id\" element={<UpdateContact/>}/>\n+        <Route path=\"/modifier/:contactId\" element={<UpdateContact/>}/>\n         <Route path=\"/contacts\" element={<ContactList/>}/>\n     </Routes>\n \n   </div>\n"
                 }
             ],
             "date": 1675693957988,

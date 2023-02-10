@@ -16,15 +16,22 @@ export const ContactForm = () => {
         
         
         
-        Meteor.call('contacts.insert', {firstname, name, email, phone, city, provence, zipcode, country});
-        setFirstName("");
-        setName("");
-        setEmail("");
-        setPhone("");
-        setCity("");
-        setCProvence("");
-        setZipcode("");
-        setCountry("");
+        Meteor.call(
+            'contacts.insert', 
+            {firstname, name, email, phone, city, provence, zipcode, country},
+            function(error, result){
+                if(!error){
+                    setFirstName("");
+                    setName("");
+                    setEmail("");
+                    setPhone("");
+                    setCity("");
+                    setCProvence("");
+                    setZipcode("");
+                    setCountry("");
+                }
+            });
+        
 
        
     };

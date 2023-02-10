@@ -15,7 +15,7 @@ export const App = () => (
     <Routes>
         <Route path="/" element={<MainLayout/>}/>
         <Route path="/ajouter" element={<ContactForm/>}/>
-        <Route path="/modifier/:id" element={<UpdateContact/>}/>
+        <Route path="/modifier/:contactId" element={<UpdateContact/>}/>
         <Route path="/contacts" element={<ContactList/>}/>
     </Routes>
 

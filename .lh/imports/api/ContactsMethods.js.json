@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 21,
             "patches": [
                 {
                     "date": 1673382873149,
@@ -36,6 +36,62 @@
                 {
                     "date": 1673454262050,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,7 +10,11 @@\n Meteor.methods({\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n         \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n+     },\n+\n+     'contacts.remove' ({contactId}){\n+        return ContactsCollection.remove(contactId);\n      }\n });\n \n"
+                },
+                {
+                    "date": 1675959836958,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,19 @@\n \n      'contacts.remove' ({contactId}){\n         return ContactsCollection.remove(contactId);\n      }\n+\n+     'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n+      return ContactsCollection.update(\n+         {contactId}, \n+         {$set:{firstname: firstname}}, \n+         {$set:{name: name}}, \n+         {$set:{email: email}},\n+         {$set:{phone: phone}},\n+         {$set:{city: city}},\n+         {$set:{provence: provence}},\n+         {$set:{zipcode: zipcode}},\n+         {$set:{country: country}},);\n+   }\n });\n \n"
+                },
+                {
+                    "date": 1675959853875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n          {$set:{phone: phone}},\n          {$set:{city: city}},\n          {$set:{provence: provence}},\n          {$set:{zipcode: zipcode}},\n-         {$set:{country: country}},);\n+         {$set:{country: country}});\n    }\n });\n \n"
+                },
+                {
+                    "date": 1675960325033,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,20 +14,12 @@\n      },\n \n      'contacts.remove' ({contactId}){\n         return ContactsCollection.remove(contactId);\n+     },\n+\n+     'contacts.update' ({ contactId, firstname, name, email, phone, city, provence, zipcode, country }){\n+         return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n      }\n-\n-     'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-      return ContactsCollection.update(\n-         {contactId}, \n-         {$set:{firstname: firstname}}, \n-         {$set:{name: name}}, \n-         {$set:{email: email}},\n-         {$set:{phone: phone}},\n-         {$set:{city: city}},\n-         {$set:{provence: provence}},\n-         {$set:{zipcode: zipcode}},\n-         {$set:{country: country}});\n    }\n });\n \n"
+                },
+                {
+                    "date": 1675964601257,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,12 +14,7 @@\n      },\n \n      'contacts.remove' ({contactId}){\n         return ContactsCollection.remove(contactId);\n-     },\n-\n-     'contacts.update' ({ contactId, firstname, name, email, phone, city, provence, zipcode, country }){\n-         return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n      }\n-   }\n });\n \n"
+                },
+                {
+                    "date": 1675964693013,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,11 @@\n      },\n \n      'contacts.remove' ({contactId}){\n         return ContactsCollection.remove(contactId);\n-     }\n+     },\n+\n+     'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n+      return ContactsCollection.update(contactId);\n+   }\n });\n \n"
+                },
+                {
+                    "date": 1675964788365,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-      return ContactsCollection.update(contactId);\n+      return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n    }\n });\n \n"
+                },
+                {
+                    "date": 1675964847319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,8 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-      return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n-   }\n+         return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n+      }\n });\n \n"
+                },
+                {
+                    "date": 1675975681318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n * From form contact\n *\n */\n Meteor.methods({\n+   \n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n         \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      },\n"
+                },
+                {
+                    "date": 1676054227035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n * From form contact\n *\n */\n Meteor.methods({\n-   \n+\n     'contacts.insert' ({ firstname, name, email, phone, city, provence, zipcode, country }){\n         \n         return ContactsCollection.insert({ firstname, name, email, phone, city, provence, zipcode, country });\n      },\n@@ -18,8 +18,8 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-         return ContactsCollection.update(contactId, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n+         return ContactsCollection.update({_id: contactId}, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n       }\n });\n \n"
+                },
+                {
+                    "date": 1676054479098,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,20 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-         return ContactsCollection.update({_id: contactId}, { $set: { firstname, name, email, phone, city, provence, zipcode, country } });\n+         return ContactsCollection.update(\n+            {_id: contactId}, \n+            { $set: { \n+                  firstname:firstname , \n+                  name : name, \n+                  email : email, \n+                  phone : phone, \n+                  city : city, \n+                  provence : provence, \n+                  zipcode : zipcode, \n+                  country : country\n+               } \n+            });\n       }\n });\n \n"
+                },
+                {
+                    "date": 1676064925167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n          return ContactsCollection.update(\n             {_id: contactId}, \n-            { $set: { \n+            { $set: \n+               { \n                   firstname:firstname , \n                   name : name, \n                   email : email, \n                   phone : phone, \n@@ -30,8 +31,9 @@\n                   provence : provence, \n                   zipcode : zipcode, \n                   country : country\n                } \n-            });\n+            }\n+         );\n       }\n });\n \n"
+                },
+                {
+                    "date": 1676064981792,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-         return ContactsCollection.update(\n+         ContactsCollection.update(\n             {_id: contactId}, \n             { $set: \n                { \n                   firstname:firstname , \n@@ -33,7 +33,8 @@\n                   country : country\n                } \n             }\n          );\n+         return redirect(`/contacts/${contact.id}/edit`);\n       }\n });\n \n"
+                },
+                {
+                    "date": 1676065090018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,8 @@\n import { ContactsCollection } from './ContactsCollection';\n+import { redirect } from \"react-router-dom\";\n \n \n-\n /*\n * Insert Contact \n * From form contact\n *\n@@ -33,8 +33,8 @@\n                   country : country\n                } \n             }\n          );\n-         return redirect(`/contacts/${contact.id}/edit`);\n+         return redirect(\"/contacts/\");\n       }\n });\n \n"
+                },
+                {
+                    "date": 1676065706253,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n         return ContactsCollection.remove(contactId);\n      },\n \n      'contacts.update' ({contactId, firstname, name, email, phone, city, provence, zipcode, country}){\n-         ContactsCollection.update(\n+         return ContactsCollection.update(\n             {_id: contactId}, \n             { $set: \n                { \n                   firstname:firstname , \n@@ -33,8 +33,8 @@\n                   country : country\n                } \n             }\n          );\n-         return redirect(\"/contacts/\");\n+          \n       }\n });\n \n"
                 }
             ],
             "date": 1673382873149,

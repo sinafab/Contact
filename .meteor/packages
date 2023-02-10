@@ -23,7 +23,5 @@ react-meteor-data             # React higher-order component for reactively trac
 ostrio:flow-router-extra      # FlowRouter is a very simple router for Meteor. It does routing for client-side apps and compatible with React, Vue, Svelte, and Blaze.
 kadira:blaze-layout           # This is a layout manager designed for Blaze
 server-render@0.4.1           # This package implements generic support for server-side rendering in Meteor apps
-alexwine:bootstrap-4
-peppelg:bootstrap-3-modal
 tracker@1.3.0
 jquery

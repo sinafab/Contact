@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 18,
+            "activePatchIndex": 19,
             "patches": [
                 {
                     "date": 1675882796233,
@@ -80,6 +80,10 @@
                 {
                     "date": 1675892414830,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React from \"react\";\n-import { Link, NavLink } from \"react-router-dom\";\n+import { Link } from \"react-router-dom\";\n \n \n export const Navbar = () => {\n     return (\n"
+                },
+                {
+                    "date": 1676042549722,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n                     <span className=\"navbar-toggler-icon\"></span>\n                 </button>\n                 <div className=\"collapse navbar-collapse\" id=\"navbarNavAltMarkup\">\n                     <div className=\"navbar-nav\">\n-                        <Link className=\"nav-link active\"  to=\"/\">Accueil</Link>\n+                        <Link className=\"nav-link\"  to=\"/\">Accueil</Link>\n                         <Link className=\"nav-link\"  to=\"/ajouter\">Ajouter</Link>\n                         <Link className=\"nav-link\" to=\"/contacts\">Listes de contact</Link>\n                     </div>\n                 </div>\n"
                 }
             ],
             "date": 1675882796233,

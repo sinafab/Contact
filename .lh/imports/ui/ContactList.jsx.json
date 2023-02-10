@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 94,
+            "activePatchIndex": 110,
             "patches": [
                 {
                     "date": 1673374880132,
@@ -384,6 +384,70 @@
                 {
                     "date": 1675894585617,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <Link className=\"btn btn-outline-primary mr-2\"  to=\"/modifier/{contact._id}\">Modifier</Link> \n+                    <Link className=\"btn btn-outline-primary mr-2\"  to=\"/modifier/${contact._id}\">Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n         </div>\n"
+                },
+                {
+                    "date": 1675949367261,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <Link className=\"btn btn-outline-primary mr-2\"  to=\"/modifier/${contact._id}\">Modifier</Link> \n+                    <Link className=\"btn btn-outline-primary mr-2\"  to=\"{`/modifier/${contact._id}`}\">Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n         </div>\n"
+                },
+                {
+                    "date": 1675949404769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <Link className=\"btn btn-outline-primary mr-2\"  to=\"{`/modifier/${contact._id}`}\">Modifier</Link> \n+                    <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n         </div>\n"
+                },
+                {
+                    "date": 1675954923695,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n     \n-    if(isLoading()){\n-        return <p>chargement...</p>\n-    }\n+    // if(isLoading()){\n+    //     return <p>chargement...</p>\n+    // }\n \n     return (\n     <div className=\"container\">\n       <h1>La liste des contacts</h1>\n"
+                },
+                {
+                    "date": 1675954933565,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n \n export const ContactList = () => {\n \n-    const isLoading = useSubscribe('contactList');\n+    // const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         const result =  ContactsCollection.find().fetch();\n         return result;\n"
+                },
+                {
+                    "date": 1675954952222,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n \n \n export const ContactList = () => {\n \n-    // const isLoading = useSubscribe('contactList');\n+    const isLoading = useSubscribe('contactList');\n     \n     const contacts = useTracker(() => {\n         const result =  ContactsCollection.find().fetch();\n         return result;\n"
+                },
+                {
+                    "date": 1675955146485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,11 +21,11 @@\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n     \n-    // if(isLoading()){\n-    //     return <p>chargement...</p>\n-    // }\n+    if(isLoading()){\n+        return <p>chargement...</p>\n+    }\n \n     return (\n     <div className=\"container\">\n       <h1>La liste des contacts</h1>\n"
+                },
+                {
+                    "date": 1675975521108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,15 @@\n         const result =  ContactsCollection.find().fetch();\n         return result;\n     });\n \n-   \n+    \n+    const updateContact = (_id) =>{\n+        Meteor.call('contacts.remove', {contactId: _id});            \n+    };\n+\n+\n+\n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n@@ -39,8 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n+                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucess\">Update</button> \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1675975568875,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucess\">Update</button> \n+                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucesse\">Update</button> \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1675975589334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucesse\">Update</button> \n+                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucsess\">Update</button> \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1675975624023,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-sucsess\">Update</button> \n+                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-success\">Update</button> \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1675975635081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-success\">Update</button> \n+                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-success mr-2\">Update</button> \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1675975652623,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n     });\n \n     \n     const updateContact = (_id) =>{\n-        Meteor.call('contacts.remove', {contactId: _id});            \n+        Meteor.call('contacts.update', {contactId: _id});            \n     };\n \n \n \n"
+                },
+                {
+                    "date": 1676037534135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n                         <p className=\"card-text\">{contact.email} {contact.phone}</p>\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n-                    <button onClick={()=> updateContact(contact._id)} type=\"button\" className=\"btn btn-outline-success mr-2\">Update</button> \n+                     \n                     <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n"
+                },
+                {
+                    "date": 1676037681161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,14 +16,8 @@\n         return result;\n     });\n \n     \n-    const updateContact = (_id) =>{\n-        Meteor.call('contacts.update', {contactId: _id});            \n-    };\n-\n-\n-\n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n"
+                },
+                {
+                    "date": 1676042340888,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n                     </div>\n                 </div>   \n                 <div className=\"col-md-4 d-flex align-items-center justify-content-end pe-5\">\n                      \n-                    <Link className=\"btn btn-outline-primary mr-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n+                    <Link className=\"btn btn-outline-primary m-2\"  to={`/modifier/${contact._id}`}>Modifier</Link> \n                     <button onClick={()=> removeContact(contact._id)} type=\"button\" className=\"btn btn-outline-danger\">Supprimer</button> \n                 </div>\n             </div>\n         </div>\n"
+                },
+                {
+                    "date": 1676046225020,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,10 @@\n         const result =  ContactsCollection.find().fetch();\n         return result;\n     });\n \n-    \n+    console.log(\"les contacts\"+contacts);\n+\n     const removeContact = (_id) =>{\n         Meteor.call('contacts.remove', {contactId: _id});            \n     };\n \n"
                 }
             ],
             "date": 1673374880132,
